@@ -117,7 +117,6 @@ export default function DeliveryMap({ onDeliveryChange, onLocationChange }: Deli
           touchZoom={true}
           scrollWheelZoom={false}
           {...{ gestureHandling: true } as object}
-          scrollWheelZoom={false}
           ref={mapRef}
         >
           <TileLayer
