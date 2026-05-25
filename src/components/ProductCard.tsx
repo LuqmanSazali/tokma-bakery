@@ -104,15 +104,15 @@ export default function ProductCard({ product, onAddToCart, onBuyNow, onViewDeta
         </span>
         <button
           onClick={e => { e.stopPropagation(); onAddToCart(product) }}
-          className="flex-1 bg-white border-2 border-gray-200 hover:border-secondary hover:bg-secondary/20 text-brown font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all whitespace-nowrap"
+          className="flex-1 bg-white border-2 border-gray-200 hover:border-secondary hover:bg-secondary/20 text-brown font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all"
         >
           🛒 Add
         </button>
         <button
           onClick={e => { e.stopPropagation(); onBuyNow(product) }}
-          className={`flex-1 ${style.btn} font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all shadow whitespace-nowrap`}
+          className={`flex-1 ${style.btn} font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all shadow`}
         >
-          ⚡ Buy Now
+          🛍️ Buy
         </button>
       </div>
     </div>

@@ -132,7 +132,7 @@ export default function ProductModal({ product, onClose, onAddToCart, onBuyNow }
               onClick={() => { onBuyNow(product); onClose() }}
               className={`flex-1 ${style.btn} font-bold text-sm py-3 rounded-full min-h-[44px] active:scale-95 transition-all shadow`}
             >
-              ⚡ Buy Now
+              🛍️ Buy Now
             </button>
           </div>
         </div>
