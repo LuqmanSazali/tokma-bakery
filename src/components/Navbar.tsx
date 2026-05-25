@@ -64,7 +64,7 @@ export default function Navbar({ totalItems, onCartClick }: NavbarProps) {
       <div className="relative max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <span className="text-3xl drop-shadow">🍞</span>
+          <img src="/tokma-bakery/images/mascot-crop-no-bg.png" alt="Tokma mascot" className="h-10 w-auto drop-shadow" />
           <div className="flex flex-col leading-none">
             <span className="font-display text-white text-xl tracking-wide drop-shadow">
               {config.bakery.name}
