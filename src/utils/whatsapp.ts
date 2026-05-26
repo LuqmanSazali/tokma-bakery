@@ -1,6 +1,6 @@
 import config from '../config'
 import type { CartItem, Customer, DeliveryResult } from '../types'
-import { calcItemPrice, formatOptions } from './product'
+import { calcItemPrice } from './product'
 
 const WHATSAPP_NUMBER = config.bakery.whatsapp
 
