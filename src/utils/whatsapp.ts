@@ -1,5 +1,6 @@
 import config from '../config'
 import type { CartItem, Customer, DeliveryResult } from '../types'
+import { calcItemPrice, formatOptions } from './product'
 
 const WHATSAPP_NUMBER = config.bakery.whatsapp
 
@@ -21,7 +22,8 @@ export function buildWhatsAppUrl(
 ): string {
   const lines: string[] = []
 
-  const subtotal = items.reduce((sum, { product, quantity }) => sum + product.price * quantity, 0)
+  const subtotal = items.reduce((sum, item) =>
+    sum + calcItemPrice(item.product, item.selectedOptions) * item.quantity, 0)
   const total = subtotal + delivery.fee
 
   const now = new Date()
@@ -42,8 +44,16 @@ export function buildWhatsAppUrl(
   }
   lines.push(`*Delivery Date*: ${formatDate(customer.deliveryDate)}`)
   lines.push('*Order Details*:')
-  items.forEach(({ product, quantity }) => {
-    lines.push(`  • ${product.name} (${quantity} pcs) — ${formatPrice(product.price * quantity)}`)
+  items.forEach(({ product, quantity, selectedOptions }) => {
+    const itemPrice = calcItemPrice(product, selectedOptions)
+    const priceNote = product.price === 0 ? 'Contact for price' : formatPrice(itemPrice * quantity)
+    lines.push(`  • ${product.name} x${quantity} — ${priceNote}`)
+    // Sub-bullets for each option group
+    selectedOptions?.forEach(group => {
+      if (group.items.length > 0) {
+        lines.push(`      ↳ ${group.name}: ${group.items.join(', ')}`)
+      }
+    })
   })
   lines.push(`*Subtotal*      : ${formatPrice(subtotal)}`)
   lines.push(`*Delivery Fee*  : ${formatPrice(delivery.fee)} (${delivery.distanceKm.toFixed(1)} km)`)
@@ -55,13 +65,4 @@ export function buildWhatsAppUrl(
 
   const message = lines.join('\n')
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
-}
-
-export function buildBuyNowUrl(
-  item: CartItem,
-  customer: Customer,
-  delivery: DeliveryResult,
-  pinnedLocation?: [number, number] | null,
-): string {
-  return buildWhatsAppUrl([item], customer, delivery, pinnedLocation)
 }

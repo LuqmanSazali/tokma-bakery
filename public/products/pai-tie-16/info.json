@@ -1,0 +1,19 @@
+{
+  "name": "Pai Tie (16 pcs)",
+  "price": 40.00,
+  "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+  "category": "pastry",
+  "order": 8,
+  "options": [
+    {
+      "name": "Fillings",
+      "multiple": true,
+      "items": [
+        { "label": "Shrimp 🍤" },
+        { "label": "Slice Chicken" },
+        { "label": "Crab Stick 🦀" },
+        { "label": "Enoki" }
+      ]
+    }
+  ]
+}

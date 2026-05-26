@@ -8,10 +8,10 @@ const config = {
 
   // ── Business info ────────────────────────────────────────────
   bakery: {
-    name:      'Tokma Bakery',
+    name:      'Li’iz Patisserie',
     tagline:   'Homemade with love',
     location:  'Kajang, Selangor',
-    whatsapp:  '60176259747',
+    whatsapp:  '60149333612',
   },
 
   // ── Baker's location (used as delivery origin on the map) ────
@@ -34,7 +34,7 @@ const config = {
     ratePerKm: 0.8,
 
     // Surcharge multiplier for extended zone (1.5 = 50% extra)
-    extendedMultiplier: 1.5,
+    extendedMultiplier: 1.2,
 
     // Minimum delivery fee in RM
     minFee: 3.00,
@@ -46,9 +46,9 @@ const config = {
   // ── Social media links ───────────────────────────────────────
   // Replace with real URLs when accounts are created
   social: {
-    facebook:  'https://facebook.com/tokmabakery',
-    instagram: 'https://instagram.com/tokmabakery',
-    tiktok:    'https://tiktok.com/@tokmabakery',
+    facebook:  'https://facebook.com/liiz.patisserie',
+    instagram: 'https://instagram.com/liiz.patisserie',
+    tiktok:    'https://tiktok.com/@liiz.patisserie',
   },
 
 } as const

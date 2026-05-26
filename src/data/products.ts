@@ -6,6 +6,654 @@ import type { Product } from '../types'
 
 export const PRODUCTS: Product[] = [
   {
+    "id": "mix-hokaido-shell-fruit-tart-25",
+    "name": "Mix Hokaido Shell Fruit Tart (25 pcs)",
+    "price": 45,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 1
+  },
+  {
+    "id": "mix-hokaido-shell-fruit-tart-36",
+    "name": "Mix Hokaido Shell Fruit Tart (36 pcs)",
+    "price": 60,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 1
+  },
+  {
+    "id": "mix-hokaido-shell-fruit-tart-49",
+    "name": "Mix Hokaido Shell Fruit Tart (49 pcs)",
+    "price": 80,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 1
+  },
+  {
+    "id": "mix-fruit-tart-25",
+    "name": "Mix Fruit Tart (25 pcs)",
+    "price": 45,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 2
+  },
+  {
+    "id": "mix-fruit-tart-36",
+    "name": "Mix Fruit Tart (36 pcs)",
+    "price": 60,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 2
+  },
+  {
+    "id": "mix-fruit-tart-49",
+    "name": "Mix Fruit Tart (49 pcs)",
+    "price": 80,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 2
+  },
+  {
+    "id": "mix-fruit-cheese-tart-drizzle-25",
+    "name": "Mix Fruit Tart & Cheese Tart Drizzle (25 pcs)",
+    "price": 45,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 3
+  },
+  {
+    "id": "mix-fruit-cheese-tart-drizzle-36",
+    "name": "Mix Fruit Tart & Cheese Tart Drizzle (36 pcs)",
+    "price": 60,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 3
+  },
+  {
+    "id": "mix-fruit-cheese-tart-drizzle-49",
+    "name": "Mix Fruit Tart & Cheese Tart Drizzle (49 pcs)",
+    "price": 80,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 3
+  },
+  {
+    "id": "mix-cheese-tart-strawberry-nutella-25",
+    "name": "Mix Cheese Tart Strawberry & Nutella (25 pcs)",
+    "price": 55,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 4
+  },
+  {
+    "id": "mix-cheese-tart-strawberry-nutella-36",
+    "name": "Mix Cheese Tart Strawberry & Nutella (36 pcs)",
+    "price": 70,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 4
+  },
+  {
+    "id": "mix-cheese-tart-strawberry-nutella-49",
+    "name": "Mix Cheese Tart Strawberry & Nutella (49 pcs)",
+    "price": 90,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 4
+  },
+  {
+    "id": "mix-cheese-tart-montok-25",
+    "name": "Mix Cheese Tart Montok (25 pcs)",
+    "price": 65,
+    "description": "Creamy cheese tarts in a buttery pastry shell, topped with fresh fruit or indulgent spreads. Mix and match your favourite flavours!",
+    "category": "pastry",
+    "images": [
+      "/tokma-bakery/products/mix-cheese-tart-montok-25/cheese-tart-montok.png"
+    ],
+    "options": [
+      {
+        "name": "Flavours",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Strawberry Fruit 🍓"
+          },
+          {
+            "label": "Blueberry Fruit"
+          },
+          {
+            "label": "Mango Fruit"
+          },
+          {
+            "label": "Kiwi Fruit 🥝"
+          },
+          {
+            "label": "Nutella Biscoff"
+          },
+          {
+            "label": "Magnum Chocolate"
+          }
+        ]
+      }
+    ],
+    "order": 5
+  },
+  {
+    "id": "mix-cheese-tart-montok-36",
+    "name": "Mix Cheese Tart Montok (36 pcs)",
+    "price": 75,
+    "description": "Creamy cheese tarts in a buttery pastry shell, topped with fresh fruit or indulgent spreads. Mix and match your favourite flavours!",
+    "category": "pastry",
+    "images": [
+      "/tokma-bakery/products/mix-cheese-tart-montok-36/cheese-tart-montok.png"
+    ],
+    "options": [
+      {
+        "name": "Flavours",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Strawberry Fruit 🍓"
+          },
+          {
+            "label": "Blueberry Fruit"
+          },
+          {
+            "label": "Mango Fruit"
+          },
+          {
+            "label": "Kiwi Fruit 🥝"
+          },
+          {
+            "label": "Nutella Biscoff"
+          },
+          {
+            "label": "Magnum Chocolate"
+          }
+        ]
+      }
+    ],
+    "order": 5
+  },
+  {
+    "id": "mix-cheese-tart-montok-49",
+    "name": "Mix Cheese Tart Montok (49 pcs)",
+    "price": 85,
+    "description": "Creamy cheese tarts in a buttery pastry shell, topped with fresh fruit or indulgent spreads. Mix and match your favourite flavours!",
+    "category": "pastry",
+    "images": [
+      "/tokma-bakery/products/mix-cheese-tart-montok-49/cheese-tart-montok.png"
+    ],
+    "options": [
+      {
+        "name": "Flavours",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Strawberry Fruit 🍓"
+          },
+          {
+            "label": "Blueberry Fruit"
+          },
+          {
+            "label": "Mango Fruit"
+          },
+          {
+            "label": "Kiwi Fruit 🥝"
+          },
+          {
+            "label": "Nutella Biscoff"
+          },
+          {
+            "label": "Magnum Chocolate"
+          }
+        ]
+      }
+    ],
+    "order": 5
+  },
+  {
+    "id": "mix-strawberry-nutella-brownies-36",
+    "name": "Mix Strawberry Fruit & Nutella Biscoff Brownies (36 pcs)",
+    "price": 45,
+    "description": "No Description",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 6
+  },
+  {
+    "id": "pai-tie-12",
+    "name": "Pai Tie (12 pcs)",
+    "price": 30,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "pai-tie-16",
+    "name": "Pai Tie (16 pcs)",
+    "price": 40,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "pai-tie-20",
+    "name": "Pai Tie (20 pcs)",
+    "price": 50,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "pai-tie-24",
+    "name": "Pai Tie (24 pcs)",
+    "price": 60,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "pai-tie-28",
+    "name": "Pai Tie (28 pcs)",
+    "price": 70,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "pai-tie-32",
+    "name": "Pai Tie (32 pcs)",
+    "price": 80,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "pai-tie-36",
+    "name": "Pai Tie (36 pcs)",
+    "price": 90,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "pai-tie-40",
+    "name": "Pai Tie (40 pcs)",
+    "price": 100,
+    "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
+    "category": "pastry",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Fillings",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Shrimp 🍤"
+          },
+          {
+            "label": "Slice Chicken"
+          },
+          {
+            "label": "Crab Stick 🦀"
+          },
+          {
+            "label": "Enoki"
+          }
+        ]
+      }
+    ],
+    "order": 8
+  },
+  {
+    "id": "mix-fruit-panacotta-9",
+    "name": "Mix Fruit Panacotta (9 pcs / 3 flavours)",
+    "price": 57,
+    "description": "Silky smooth panna cotta topped with fresh tropical fruits. Each set comes with 3 flavours of your choice.",
+    "category": "cake",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Flavours",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Strawberry Fruit"
+          },
+          {
+            "label": "Blueberry Fruit"
+          },
+          {
+            "label": "Green Grapes"
+          },
+          {
+            "label": "Kiwi Fruit"
+          },
+          {
+            "label": "Mango Fruit"
+          },
+          {
+            "label": "Laici Fruit"
+          },
+          {
+            "label": "Longan Fruit"
+          }
+        ]
+      }
+    ],
+    "order": 9
+  },
+  {
+    "id": "mix-fruit-panacotta-16",
+    "name": "Mix Fruit Panacotta (16 pcs / 4 flavours)",
+    "price": 100,
+    "description": "Silky smooth panna cotta topped with fresh tropical fruits. Each set comes with 4 flavours of your choice.",
+    "category": "cake",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "options": [
+      {
+        "name": "Flavours",
+        "multiple": true,
+        "items": [
+          {
+            "label": "Strawberry Fruit"
+          },
+          {
+            "label": "Blueberry Fruit"
+          },
+          {
+            "label": "Green Grapes"
+          },
+          {
+            "label": "Kiwi Fruit"
+          },
+          {
+            "label": "Mango Fruit"
+          },
+          {
+            "label": "Laici Fruit"
+          },
+          {
+            "label": "Longan Fruit"
+          }
+        ]
+      }
+    ],
+    "order": 9
+  },
+  {
+    "id": "pulut-kuning-rendang-pedas-daging-10",
+    "name": "Pulut Kuning & Rendang Pedas Daging (10 box)",
+    "price": 0,
+    "description": "No Description",
+    "category": "traditional",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 10
+  },
+  {
+    "id": "pulut-kuning-rendang-pedas-daging-20",
+    "name": "Pulut Kuning & Rendang Pedas Daging (20 box)",
+    "price": 0,
+    "description": "No Description",
+    "category": "traditional",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 10
+  },
+  {
+    "id": "pulut-kuning-serunding-ayam-10",
+    "name": "Pulut Kuning & Serunding Ayam (10 box)",
+    "price": 0,
+    "description": "No Description",
+    "category": "traditional",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 10
+  },
+  {
+    "id": "pulut-kuning-serunding-ayam-20",
+    "name": "Pulut Kuning & Serunding Ayam (20 box)",
+    "price": 0,
+    "description": "No Description",
+    "category": "traditional",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 10
+  },
+  {
+    "id": "pulut-kuning-serunding-daging-10",
+    "name": "Pulut Kuning & Serunding Daging (10 box)",
+    "price": 0,
+    "description": "No Description",
+    "category": "traditional",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 10
+  },
+  {
+    "id": "pulut-kuning-serunding-daging-20",
+    "name": "Pulut Kuning & Serunding Daging (20 box)",
+    "price": 0,
+    "description": "No Description",
+    "category": "traditional",
+    "images": [
+      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+    ],
+    "order": 10
+  },
+  {
     "id": "beef-pot-pies-9",
     "name": "Beef Pot Pies (9 pcs)",
     "price": 65,
@@ -77,5 +725,5 @@ export const PRODUCTS: Product[] = [
   }
 ]
 
-export const CATEGORIES = ['All', 'cake', 'bread', 'pastry', 'cookies'] as const
+export const CATEGORIES = ['All', 'cake', 'bread', 'pastry', 'cookies', 'traditional'] as const
 export type CategoryFilter = typeof CATEGORIES[number]

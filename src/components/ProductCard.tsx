@@ -9,22 +9,24 @@ interface ProductCardProps {
 }
 
 const CATEGORY_STYLE: Record<string, { pill: string; price: string; btn: string }> = {
-  cake:    { pill: 'bg-purple-500 text-white', price: 'bg-purple-500 text-white', btn: 'bg-purple-800 text-white' },
-  bread:   { pill: 'bg-amber-500 text-white',  price: 'bg-amber-500 text-white',  btn: 'bg-amber-800 text-white'  },
-  pastry:  { pill: 'bg-yellow-400 text-brown', price: 'bg-yellow-400 text-brown', btn: 'bg-yellow-600 text-white' },
-  cookies: { pill: 'bg-red-500 text-white',    price: 'bg-red-500 text-white',    btn: 'bg-red-800 text-white'    },
+  cake:        { pill: 'bg-purple-500 text-white', price: 'bg-purple-500 text-white', btn: 'bg-purple-800 text-white' },
+  bread:       { pill: 'bg-amber-500 text-white',  price: 'bg-amber-500 text-white',  btn: 'bg-amber-800 text-white'  },
+  pastry:      { pill: 'bg-yellow-400 text-brown', price: 'bg-yellow-400 text-brown', btn: 'bg-yellow-600 text-white' },
+  cookies:     { pill: 'bg-red-500 text-white',    price: 'bg-red-500 text-white',    btn: 'bg-red-800 text-white'    },
+  traditional: { pill: 'bg-green-600 text-white',  price: 'bg-green-600 text-white',  btn: 'bg-green-800 text-white'  },
 }
 
 const CATEGORY_EMOJI: Record<string, string> = {
-  cake: '🎂', bread: '🍞', pastry: '🥐', cookies: '🍪',
+  cake: '🎂', bread: '🍞', pastry: '🥐', cookies: '🍪', traditional: '🍚',
 }
 
 const CATEGORY_LABEL: Record<string, string> = {
-  cake: 'Cakes', bread: 'Breads', pastry: 'Pastries', cookies: 'Cookies',
+  cake: 'Cakes', bread: 'Breads', pastry: 'Pastries', cookies: 'Cookies', traditional: 'Traditional',
 }
 
 export default function ProductCard({ product, onAddToCart, onBuyNow, onViewDetails }: ProductCardProps) {
   const [imgIndex, setImgIndex] = useState(0)
+  const isUnavailable = product.status === 'coming_soon' || product.status === 'out_of_stock'
   const style = CATEGORY_STYLE[product.category] ?? { pill: 'bg-primary text-white', price: 'bg-primary text-white', btn: 'bg-brown text-white' }
   const emoji = CATEGORY_EMOJI[product.category] ?? '🍽️'
   const label = CATEGORY_LABEL[product.category] ?? product.category
@@ -51,12 +53,17 @@ export default function ProductCard({ product, onAddToCart, onBuyNow, onViewDeta
           <span className="text-base">{emoji}</span>
           <span>{label}</span>
         </span>
-        {product.limitedEdition && (
-          <span className="ml-1.5 inline-flex items-center bg-accent text-white text-xs font-black px-2 py-1 rounded-full shadow">
-            ⭐ Limited
-          </span>
-        )}
       </div>
+
+      {/* ── Limited Edition diagonal ribbon ───────── */}
+      {product.limitedEdition && (
+        <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden z-10 pointer-events-none rounded-tr-3xl">
+          <div className="absolute bg-red-500 text-white text-[10px] font-black tracking-widest py-1 w-32 text-center shadow-md"
+            style={{ top: '18px', right: '-22px', transform: 'rotate(45deg)' }}>
+            LIMITED
+          </div>
+        </div>
+      )}
 
       {/* ── Product image ─────────────────────────── */}
       <div className="relative aspect-[4/3] overflow-hidden bg-cream">
@@ -66,10 +73,19 @@ export default function ProductCard({ product, onAddToCart, onBuyNow, onViewDeta
           alt={`${product.name} photo ${imgIndex + 1}`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           onError={e => {
-            e.currentTarget.src = `https://placehold.co/400x300/FFC800/3B1F0F?text=${encodeURIComponent(emoji + ' ' + product.name)}`
+            e.currentTarget.src = `https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+        {/* Status overlay */}
+        {(product.status === 'coming_soon' || product.status === 'out_of_stock') && (
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <span className="bg-white text-brown font-display text-sm px-4 py-1.5 rounded-full shadow-lg">
+              {product.status === 'coming_soon' ? '🔜 Coming Soon' : '❌ Out of Stock'}
+            </span>
+          </div>
+        )}
 
         {/* Prev/Next arrows */}
         {hasMultiple && (
@@ -100,20 +116,38 @@ export default function ProductCard({ product, onAddToCart, onBuyNow, onViewDeta
       {/* ── Price + Buttons ────────────────────────── */}
       <div className="flex items-center gap-2 px-3 pb-4 pt-1 mt-auto">
         <span className={`${style.price} font-display text-lg px-4 py-2 rounded-full shadow-md whitespace-nowrap flex-shrink-0`}>
-          RM {product.price.toFixed(2)}
+          {product.price === 0 ? 'Contact' : `RM ${product.price.toFixed(2)}`}
         </span>
-        <button
-          onClick={e => { e.stopPropagation(); onAddToCart(product) }}
-          className="flex-1 bg-white border-2 border-gray-200 hover:border-secondary hover:bg-secondary/20 text-brown font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all"
-        >
-          🛒 Add
-        </button>
-        <button
-          onClick={e => { e.stopPropagation(); onBuyNow(product) }}
-          className={`flex-1 ${style.btn} font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all shadow`}
-        >
-          🛍️ Buy
-        </button>
+        {!isUnavailable ? (
+          <>
+            <button
+              onClick={e => {
+                e.stopPropagation()
+                // If product has options, open modal to pick them first
+                if (product.options?.length) { onViewDetails(product) }
+                else { onAddToCart(product) }
+              }}
+              className="flex-1 bg-white border-2 border-gray-200 hover:border-secondary hover:bg-secondary/20 text-brown font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all"
+            >
+              🛒 Add
+            </button>
+            <button
+              onClick={e => {
+                e.stopPropagation()
+                // If product has options, open modal to pick them first
+                if (product.options?.length) { onViewDetails(product) }
+                else { onBuyNow(product) }
+              }}
+              className={`flex-1 ${style.btn} font-bold text-xs py-2.5 rounded-full min-h-[44px] active:scale-95 transition-all shadow`}
+            >
+              🛍️ Buy
+            </button>
+          </>
+        ) : (
+          <span className="flex-1 text-center text-xs text-gray-400 font-semibold py-2.5">
+            {product.status === 'coming_soon' ? 'Coming soon' : 'Unavailable'}
+          </span>
+        )}
       </div>
     </div>
   )

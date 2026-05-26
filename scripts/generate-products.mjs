@@ -17,7 +17,8 @@ const OUTPUT_FILE  = path.resolve('src/data/products.ts')
 const BASE_PATH    = '/tokma-bakery/products'
 const IMAGE_EXTS   = ['.jpg', '.jpeg', '.png', '.webp']
 
-const VALID_CATEGORIES = ['cake', 'bread', 'pastry', 'cookies']
+const VALID_CATEGORIES = ['cake', 'bread', 'pastry', 'cookies', 'traditional']
+const VALID_STATUSES   = ['available', 'coming_soon', 'out_of_stock']
 
 // ── Read all product folders ───────────────────────────────────────────────────
 if (!fs.existsSync(PRODUCTS_DIR)) {
@@ -54,13 +55,13 @@ for (const folder of folders) {
     continue
   }
 
-  const { name, price, description, category, featured, limitedEdition, order } = info
+  const { name, price, description, category, featured, limitedEdition, order, options, status } = info
 
   if (!name || typeof name !== 'string') {
     errors.push(`❌ "${folder}": info.json missing "name"`)
     continue
   }
-  if (!price || typeof price !== 'number') {
+  if (typeof price !== 'number') {
     errors.push(`❌ "${folder}": info.json missing "price" (must be a number)`)
     continue
   }
@@ -72,23 +73,30 @@ for (const folder of folders) {
     errors.push(`❌ "${folder}": category must be one of: ${VALID_CATEGORIES.join(', ')}`)
     continue
   }
+  if (status && !VALID_STATUSES.includes(status)) {
+    errors.push(`❌ "${folder}": status must be one of: ${VALID_STATUSES.join(', ')}`)
+    continue
+  }
 
   // ── Collect images (sorted) ──────────────────────────────────────────────
-  const images = fs.readdirSync(folderPath)
+  let images = fs.readdirSync(folderPath)
     .filter(f => IMAGE_EXTS.includes(path.extname(f).toLowerCase()))
     .sort()
     .map(f => `${BASE_PATH}/${folder}/${f}`)
 
   if (images.length === 0) {
-    errors.push(`❌ "${folder}": no images found (jpg, jpeg, png, webp)`)
-    continue
+    const placeholder = `https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image`
+    images = [placeholder]
+    console.log(`  ⚠️  No image found for "${folder}" — using placeholder`)
   }
 
   products.push({
     id: folder, name, price, description, category, images,
-    ...(typeof order === 'number' ? { order }          : {}),
+    ...(status                    ? { status }               : {}),
+    ...(Array.isArray(options) && options.length ? { options } : {}),
+    ...(typeof order === 'number' ? { order }               : {}),
     ...(featured                  ? { featured: true }       : {}),
-    ...(limitedEdition            ? { limitedEdition: true }  : {}),
+    ...(limitedEdition            ? { limitedEdition: true } : {}),
   })
   console.log(`✅ ${folder} — ${images.length} image(s)`)
 }
@@ -116,7 +124,7 @@ const lines = [
   ``,
   `export const PRODUCTS: Product[] = ${JSON.stringify(products, null, 2)}`,
   ``,
-  `export const CATEGORIES = ['All', 'cake', 'bread', 'pastry', 'cookies'] as const`,
+  `export const CATEGORIES = ['All', 'cake', 'bread', 'pastry', 'cookies', 'traditional'] as const`,
   `export type CategoryFilter = typeof CATEGORIES[number]`,
 ]
 

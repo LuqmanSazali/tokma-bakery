@@ -7,13 +7,15 @@ import { PRODUCTS, CATEGORIES } from '../data/products'
 import type { CategoryFilter } from '../data/products'
 import type { Product } from '../types'
 
+import type { SelectedOptionGroup } from '../types'
+
 interface HomeProps {
-  onAddToCart: (product: Product) => void
-  onBuyNow: (product: Product) => void
+  onAddToCart: (product: Product, selectedOptions?: SelectedOptionGroup[]) => void
+  onBuyNow: (product: Product, selectedOptions?: SelectedOptionGroup[]) => void
 }
 
 const CATEGORY_EMOJI: Record<string, string> = {
-  All: '✨', cake: '🎂', bread: '🍞', pastry: '🥐', cookies: '🍪',
+  All: '✨', cake: '🎂', bread: '🍞', pastry: '🥐', cookies: '🍪', traditional: '🍚',
 }
 
 const CATEGORY_COLOR: Record<string, { active: string; inactive: string }> = {
@@ -21,7 +23,8 @@ const CATEGORY_COLOR: Record<string, { active: string; inactive: string }> = {
   cake:    { active: 'bg-pink text-white',             inactive: 'bg-white text-pink border-2 border-pink/30'               },
   bread:   { active: 'bg-amber-500 text-white',        inactive: 'bg-white text-amber-500 border-2 border-amber-300'        },
   pastry:  { active: 'bg-accent text-white',           inactive: 'bg-white text-accent border-2 border-accent/30'           },
-  cookies: { active: 'bg-purple-500 text-white',       inactive: 'bg-white text-purple-500 border-2 border-purple-300'      },
+  cookies:     { active: 'bg-purple-500 text-white',       inactive: 'bg-white text-purple-500 border-2 border-purple-300'      },
+  traditional: { active: 'bg-green-600 text-white',        inactive: 'bg-white text-green-600 border-2 border-green-300'         },
 }
 
 export default function Home({ onAddToCart, onBuyNow }: HomeProps) {

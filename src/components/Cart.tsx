@@ -1,17 +1,19 @@
 import type { CartItem } from '../types'
+import { calcItemPrice, formatOptions } from '../utils/product'
 
 interface CartProps {
   items: CartItem[]
   subtotal: number
-  onIncrement: (id: string) => void
-  onDecrement: (id: string) => void
-  onRemove: (id: string) => void
+  cartKey: (item: CartItem) => string
+  onIncrement: (key: string) => void
+  onDecrement: (key: string) => void
+  onRemove: (key: string) => void
   onCheckout: () => void
   onClose: () => void
 }
 
 export default function Cart({
-  items, subtotal,
+  items, subtotal, cartKey,
   onIncrement, onDecrement, onRemove,
   onCheckout, onClose,
 }: CartProps) {
@@ -47,45 +49,56 @@ export default function Cart({
               <p>Your cart is empty</p>
             </div>
           ) : (
-            items.map(({ product, quantity }) => (
-              <div key={product.id} className="flex items-center gap-3 py-3">
-                <img
-                  src={product.images[0]}
-                  alt={product.name}
-                  className="w-14 h-14 rounded-xl object-cover bg-secondary/20 flex-shrink-0"
-                  onError={e => {
-                    e.currentTarget.src = `https://placehold.co/56x56/FFD93D/5C3D2E?text=🍞`
-                  }}
-                />
-                <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-brown text-sm truncate">{product.name}</p>
-                  <p className="text-primary text-sm font-bold">RM {product.price.toFixed(2)}</p>
-                </div>
-                {/* Qty controls */}
-                <div className="flex items-center gap-1">
+            items.map(item => {
+              const { product, quantity, selectedOptions } = item
+              const key = cartKey(item)
+              const itemPrice = calcItemPrice(product, selectedOptions)
+              const optionsLabel = formatOptions(selectedOptions)
+              return (
+                <div key={key} className="flex items-center gap-3 py-3">
+                  <img
+                    src={product.images[0]}
+                    alt={product.name}
+                    className="w-14 h-14 rounded-xl object-cover bg-secondary/20 flex-shrink-0"
+                    onError={e => {
+                      e.currentTarget.src = `https://placehold.co/56x56/FFD93D/5C3D2E?text=🍞`
+                    }}
+                  />
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-brown text-sm truncate">{product.name}</p>
+                    {optionsLabel && (
+                      <p className="text-xs text-gray-400 truncate">{optionsLabel}</p>
+                    )}
+                    <p className="text-primary text-sm font-bold">
+                      {product.price === 0 ? 'Contact for price' : `RM ${itemPrice.toFixed(2)}`}
+                    </p>
+                  </div>
+                  {/* Qty controls */}
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => onDecrement(key)}
+                      className="w-8 h-8 rounded-full bg-gray-200 text-brown font-bold flex items-center justify-center active:scale-90 transition-transform"
+                    >
+                      −
+                    </button>
+                    <span className="w-6 text-center text-sm font-bold text-brown">{quantity}</span>
+                    <button
+                      onClick={() => onIncrement(key)}
+                      className="w-8 h-8 rounded-full bg-secondary text-brown font-bold flex items-center justify-center active:scale-90 transition-transform"
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
-                    onClick={() => onDecrement(product.id)}
-                    className="w-8 h-8 rounded-full bg-gray-200 text-brown font-bold flex items-center justify-center active:scale-90 transition-transform"
+                    onClick={() => onRemove(key)}
+                    className="text-red-400 text-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
+                    aria-label={`Remove ${product.name}`}
                   >
-                    −
-                  </button>
-                  <span className="w-6 text-center text-sm font-bold text-brown">{quantity}</span>
-                  <button
-                    onClick={() => onIncrement(product.id)}
-                    className="w-8 h-8 rounded-full bg-secondary text-brown font-bold flex items-center justify-center active:scale-90 transition-transform"
-                  >
-                    +
+                    🗑️
                   </button>
                 </div>
-                <button
-                  onClick={() => onRemove(product.id)}
-                  className="text-red-400 text-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
-                  aria-label={`Remove ${product.name}`}
-                >
-                  🗑️
-                </button>
-              </div>
-            ))
+              )
+            })
           )}
         </div>
 

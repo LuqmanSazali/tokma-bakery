@@ -1,0 +1,21 @@
+{
+  "name": "Mix Cheese Tart Montok (36 pcs)",
+  "price": 75.0,
+  "description": "Creamy cheese tarts in a buttery pastry shell, topped with fresh fruit or indulgent spreads. Mix and match your favourite flavours!",
+  "category": "pastry",
+  "order": 5,
+  "options": [
+    {
+      "name": "Flavours",
+      "multiple": true,
+      "items": [
+        { "label": "Strawberry Fruit 🍓" },
+        { "label": "Blueberry Fruit" },
+        { "label": "Mango Fruit" },
+        { "label": "Kiwi Fruit 🥝" },
+        { "label": "Nutella Biscoff" },
+        { "label": "Magnum Chocolate" }
+      ]
+    }
+  ]
+}

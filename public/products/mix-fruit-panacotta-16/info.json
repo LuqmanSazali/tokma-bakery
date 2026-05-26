@@ -1,0 +1,22 @@
+{
+  "name": "Mix Fruit Panacotta (16 pcs / 4 flavours)",
+  "price": 100.0,
+  "description": "Silky smooth panna cotta topped with fresh tropical fruits. Each set comes with 4 flavours of your choice.",
+  "category": "cake",
+  "order": 9,
+  "options": [
+    {
+      "name": "Flavours",
+      "multiple": true,
+      "items": [
+        { "label": "Strawberry Fruit" },
+        { "label": "Blueberry Fruit" },
+        { "label": "Green Grapes" },
+        { "label": "Kiwi Fruit" },
+        { "label": "Mango Fruit" },
+        { "label": "Laici Fruit" },
+        { "label": "Longan Fruit" }
+      ]
+    }
+  ]
+}

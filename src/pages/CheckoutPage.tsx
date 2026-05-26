@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import CheckoutForm from '../components/CheckoutForm'
 import DeliveryMap from '../components/DeliveryMap'
-import { buildWhatsAppUrl, buildBuyNowUrl } from '../utils/whatsapp'
-import type { CartItem, Customer, DeliveryResult, Product } from '../types'
+import { buildWhatsAppUrl } from '../utils/whatsapp'
+import { calcItemPrice } from '../utils/product'
+import type { CartItem, Customer, DeliveryResult, Product, SelectedOptionGroup } from '../types'
 
 interface CheckoutPageProps {
   items: CartItem[]
@@ -11,13 +12,14 @@ interface CheckoutPageProps {
   onUpdateCustomer: (field: keyof Customer, value: string) => void
   /** If set, this is a Buy Now single-item checkout */
   buyNowProduct?: Product
+  buyNowOptions?: SelectedOptionGroup[]
   onBack: () => void
   onOrderComplete: () => void
 }
 
 export default function CheckoutPage({
   items, subtotal, customer, onUpdateCustomer,
-  buyNowProduct, onBack, onOrderComplete,
+  buyNowProduct, buyNowOptions, onBack, onOrderComplete,
 }: CheckoutPageProps) {
   const [delivery, setDelivery] = useState<DeliveryResult | null>(null)
   const [pinnedLocation, setPinnedLocation] = useState<[number, number] | null>(null)
@@ -37,7 +39,7 @@ export default function CheckoutPage({
 
     let url: string
     if (buyNowProduct) {
-      url = buildBuyNowUrl({ product: buyNowProduct, quantity: 1 }, customer, delivery, pinnedLocation)
+      url = buildWhatsAppUrl([{ product: buyNowProduct, quantity: 1, selectedOptions: buyNowOptions }], customer, delivery, pinnedLocation)
     } else {
       url = buildWhatsAppUrl(items, customer, delivery, pinnedLocation)
     }
@@ -47,7 +49,7 @@ export default function CheckoutPage({
   }
 
   const displayItems: CartItem[] = buyNowProduct
-    ? [{ product: buyNowProduct, quantity: 1 }]
+    ? [{ product: buyNowProduct, quantity: 1, selectedOptions: buyNowOptions }]
     : items
 
   return (
@@ -67,12 +69,18 @@ export default function CheckoutPage({
         <div className="bg-white rounded-2xl shadow-sm p-4">
           <h2 className="font-display text-brown text-xl mb-3">🧾 Order Summary</h2>
           <div className="divide-y divide-gray-100">
-            {displayItems.map(({ product, quantity }) => (
-              <div key={product.id} className="flex justify-between items-center py-2 text-sm">
-                <span className="text-brown">{product.name} × {quantity}</span>
-                <span className="font-semibold text-primary">RM {(product.price * quantity).toFixed(2)}</span>
-              </div>
-            ))}
+            {displayItems.map((item) => {
+              const { product, quantity, selectedOptions } = item
+              const itemPrice = calcItemPrice(product, selectedOptions)
+              return (
+                <div key={product.id} className="flex justify-between items-center py-2 text-sm">
+                  <span className="text-brown">{product.name} × {quantity}</span>
+                  <span className="font-semibold text-primary">
+                    {product.price === 0 ? 'Contact for price' : `RM ${(itemPrice * quantity).toFixed(2)}`}
+                  </span>
+                </div>
+              )
+            })}
           </div>
           <div className="flex justify-between text-sm mt-3 pt-2 border-t border-gray-200">
             <span className="text-gray-500">Subtotal</span>

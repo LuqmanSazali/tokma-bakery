@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import CheckoutPage from './pages/CheckoutPage'
 import { useCart } from './hooks/useCart'
 import { useCustomer } from './hooks/useCustomer'
-import type { Product } from './types'
+import type { Product, SelectedOptionGroup } from './types'
 
 type Page = 'home' | 'checkout'
 
@@ -15,9 +15,11 @@ export default function App() {
   const [page, setPage] = useState<Page>('home')
   const [cartOpen, setCartOpen] = useState(false)
   const [buyNowProduct, setBuyNowProduct] = useState<Product | undefined>()
+  const [buyNowOptions, setBuyNowOptions] = useState<SelectedOptionGroup[] | undefined>()
 
-  function handleBuyNow(product: Product) {
+  function handleBuyNow(product: Product, selectedOptions?: SelectedOptionGroup[]) {
     setBuyNowProduct(product)
+    setBuyNowOptions(selectedOptions)
     setCartOpen(false)
     setPage('checkout')
   }
@@ -31,6 +33,7 @@ export default function App() {
   function handleOrderComplete() {
     cart.clearCart()
     setBuyNowProduct(undefined)
+    setBuyNowOptions(undefined)
     setPage('home')
   }
 
@@ -57,7 +60,7 @@ export default function App() {
 
       {page === 'home' && (
         <Home
-          onAddToCart={cart.addToCart}
+          onAddToCart={(p, opts) => cart.addToCart(p, opts)}
           onBuyNow={handleBuyNow}
         />
       )}
@@ -69,6 +72,7 @@ export default function App() {
           customer={customer}
           onUpdateCustomer={updateField}
           buyNowProduct={buyNowProduct}
+          buyNowOptions={buyNowOptions}
           onBack={() => setPage('home')}
           onOrderComplete={handleOrderComplete}
         />
@@ -79,6 +83,7 @@ export default function App() {
         <Cart
           items={cart.items}
           subtotal={cart.subtotal}
+          cartKey={cart.cartKey}
           onIncrement={cart.increment}
           onDecrement={cart.decrement}
           onRemove={cart.removeFromCart}
