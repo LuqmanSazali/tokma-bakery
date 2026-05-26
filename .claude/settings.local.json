@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "PowerShell(Copy-Item \"d:\\\\Pin\\\\Documents\\\\GitHub\\\\tokma-bakery\\\\public\\\\images\\\\liiz-patisserie.png\" \"d:\\\\Pin\\\\Documents\\\\GitHub\\\\tokma-bakery\\\\public\\\\favicon.png\" -Force)"
     ]
   }
 }
