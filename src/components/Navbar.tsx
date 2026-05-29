@@ -65,7 +65,7 @@ export default function Navbar({ totalItems, onCartClick }: NavbarProps) {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img src="/tokma-bakery/images/liiz-patisserie.png" alt="Li'iz Patisserie logo" className="h-10 w-auto drop-shadow" />
-          <div className="flex flex-col leading-none">
+          <div className="flex flex-col leading-none px-2 -mx-2 h-16 justify-center" style={{ background: '#FF5500' }}>
             <span className="font-display text-white text-xl tracking-wide drop-shadow">
               {config.bakery.name}
             </span>

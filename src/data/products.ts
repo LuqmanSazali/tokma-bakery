@@ -266,7 +266,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-12/pai-tie.png"
     ],
     "options": [
       {
@@ -297,7 +297,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-16/pai-tie.png"
     ],
     "options": [
       {
@@ -328,7 +328,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-20/pai-tie.png"
     ],
     "options": [
       {
@@ -359,7 +359,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-24/pai-tie.png"
     ],
     "options": [
       {
@@ -390,7 +390,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-28/pai-tie.png"
     ],
     "options": [
       {
@@ -421,7 +421,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-32/pai-tie.png"
     ],
     "options": [
       {
@@ -452,7 +452,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-36/pai-tie.png"
     ],
     "options": [
       {
@@ -483,7 +483,7 @@ export const PRODUCTS: Product[] = [
     "description": "Crispy golden pastry shells filled with your choice of savory toppings. A classic Malaysian party snack!",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pai-tie-40/pai-tie.png"
     ],
     "options": [
       {
@@ -616,7 +616,7 @@ export const PRODUCTS: Product[] = [
     "description": "No Description",
     "category": "traditional",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pulut-kuning-serunding-ayam-10/pulut-kuning-serunding-ayam.png"
     ],
     "order": 10
   },
@@ -627,7 +627,7 @@ export const PRODUCTS: Product[] = [
     "description": "No Description",
     "category": "traditional",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pulut-kuning-serunding-ayam-20/pulut-kuning-serunding-ayam.png"
     ],
     "order": 10
   },
@@ -638,7 +638,7 @@ export const PRODUCTS: Product[] = [
     "description": "No Description",
     "category": "traditional",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pulut-kuning-serunding-daging-10/pulut-kuning-serunding-daging.png"
     ],
     "order": 10
   },
@@ -649,7 +649,7 @@ export const PRODUCTS: Product[] = [
     "description": "No Description",
     "category": "traditional",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/pulut-kuning-serunding-daging-20/pulut-kuning-serunding-daging.png"
     ],
     "order": 10
   },

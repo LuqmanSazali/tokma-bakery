@@ -7,7 +7,7 @@
   "options": [
     {
       "name": "Fillings",
-      "multiple": true,
+      "multiple": false,
       "items": [
         { "label": "Shrimp 🍤" },
         { "label": "Slice Chicken" },
