@@ -222,7 +222,8 @@ export const PRODUCTS: Product[] = [
     "description": "No Description",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/mix-strawberry-nutella-brownies-36/mix-strawberry-fruit-and-nutella-biscoff-brownies-01.png",
+      "/tokma-bakery/products/mix-strawberry-nutella-brownies-36/mix-strawberry-fruit-and-nutella-biscoff-brownies-02.png"
     ],
     "order": 6
   },
