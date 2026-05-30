@@ -8,6 +8,7 @@
     {
       "name": "Fillings",
       "multiple": false,
+      "required": true,
       "items": [
         { "label": "Shrimp 🍤" },
         { "label": "Slice Chicken" },

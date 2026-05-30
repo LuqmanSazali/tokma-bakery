@@ -8,6 +8,8 @@
     {
       "name": "Flavours",
       "multiple": true,
+      "min": 4,
+      "max": 4,
       "items": [
         { "label": "Strawberry Fruit" },
         { "label": "Blueberry Fruit" },

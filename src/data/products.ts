@@ -240,6 +240,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -271,6 +272,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -302,6 +304,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -333,6 +336,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -364,6 +368,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -395,6 +400,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -426,6 +432,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -457,6 +464,7 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Fillings",
         "multiple": false,
+        "required": true,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -489,6 +497,8 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Flavours",
         "multiple": true,
+        "min": 3,
+        "max": 3,
         "items": [
           {
             "label": "Strawberry Fruit"
@@ -530,6 +540,8 @@ export const PRODUCTS: Product[] = [
       {
         "name": "Flavours",
         "multiple": true,
+        "min": 4,
+        "max": 4,
         "items": [
           {
             "label": "Strawberry Fruit"

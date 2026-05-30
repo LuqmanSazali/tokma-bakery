@@ -48,16 +48,24 @@ export default function ProductModal({ product, onClose, onAddToCart, onBuyNow }
   const selectedOptions = buildSelectedOptions()
   const livePrice = calcItemPrice(product, selectedOptions)
 
-  function toggleItem(groupName: string, label: string, multiple: boolean) {
+  // Check all required/min groups are satisfied
+  const requiredUnmet = product.options?.some(g => {
+    const count = selections[g.name]?.length ?? 0
+    if (g.min !== undefined) return count < g.min
+    if (g.required) return count === 0
+    return false
+  }) ?? false
+
+  function toggleItem(groupName: string, label: string, multiple: boolean, max?: number) {
     setSelections(prev => {
       const current = prev[groupName] ?? []
       if (multiple) {
-        const next = current.includes(label)
-          ? current.filter(x => x !== label)
-          : [...current, label]
-        return { ...prev, [groupName]: next }
+        if (current.includes(label)) {
+          return { ...prev, [groupName]: current.filter(x => x !== label) }
+        }
+        if (max !== undefined && current.length >= max) return prev  // at limit, ignore
+        return { ...prev, [groupName]: [...current, label] }
       } else {
-        // single select — deselect if same, else replace
         return { ...prev, [groupName]: current[0] === label ? [] : [label] }
       }
     })
@@ -173,20 +181,34 @@ export default function ProductModal({ product, onClose, onAddToCart, onBuyNow }
               <p className="text-sm font-semibold text-brown mb-2">
                 {group.name}
                 <span className="text-gray-400 font-normal ml-1">
-                  ({group.multiple ? 'multiple' : 'pick one'})
+                  {group.multiple
+                    ? (() => {
+                        const count = selections[group.name]?.length ?? 0
+                        const min = group.min, max = group.max
+                        if (min && max && min === max) return `(pick exactly ${min} · ${count}/${min} chosen)`
+                        if (min && max) return `(pick ${min}–${max} · ${count} chosen)`
+                        if (min) return `(pick at least ${min} · ${count}/${min} chosen)`
+                        if (max) return `(pick up to ${max}${count > 0 ? ` · ${count}/${max} chosen` : ''})`
+                        return '(multiple)'
+                      })()
+                    : '(pick one)'}
                 </span>
               </p>
               <div className="flex flex-wrap gap-2">
                 {group.items.map(item => {
                   const selected = (selections[group.name] ?? []).includes(item.label)
+                  const atMax = group.max !== undefined && (selections[group.name]?.length ?? 0) >= group.max && !selected
                   return (
                     <button
                       key={item.label}
-                      onClick={() => toggleItem(group.name, item.label, group.multiple ?? false)}
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold border-2 transition-all active:scale-95 flex items-center gap-1 ${
+                      onClick={() => toggleItem(group.name, item.label, group.multiple ?? false, group.max)}
+                      disabled={atMax}
+                      className={`px-3 py-1.5 rounded-full text-xs font-bold border-2 transition-all flex items-center gap-1 ${
                         selected
-                          ? 'bg-primary text-white border-primary'
-                          : 'bg-white text-brown border-gray-200 hover:border-primary'
+                          ? 'bg-primary text-white border-primary active:scale-95'
+                          : atMax
+                            ? 'bg-gray-100 text-gray-300 border-gray-100 cursor-not-allowed'
+                            : 'bg-white text-brown border-gray-200 hover:border-primary active:scale-95'
                       }`}
                     >
                       {item.label}
@@ -203,7 +225,12 @@ export default function ProductModal({ product, onClose, onAddToCart, onBuyNow }
           ))}
 
           {/* Price + Buttons */}
-          <div className="flex items-center gap-2 mt-2">
+          {requiredUnmet && (
+            <p className="text-xs text-red-400 font-semibold mt-2 mb-1">
+              ⚠️ Please select an option before proceeding
+            </p>
+          )}
+          <div className="flex items-center gap-2 mt-1">
             <span className={`${style.price} font-display text-xl px-4 py-2.5 rounded-full shadow-md whitespace-nowrap flex-shrink-0`}>
               {formatPrice()}
             </span>
@@ -211,13 +238,15 @@ export default function ProductModal({ product, onClose, onAddToCart, onBuyNow }
               <>
                 <button
                   onClick={() => { onAddToCart(product, buildSelectedOptions()); onClose() }}
-                  className="flex-1 bg-white border-2 border-gray-200 hover:border-secondary hover:bg-secondary/20 text-brown font-bold text-sm py-3 rounded-full min-h-[44px] active:scale-95 transition-all"
+                  disabled={requiredUnmet}
+                  className={`flex-1 border-2 font-bold text-sm py-3 rounded-full min-h-[44px] transition-all ${requiredUnmet ? 'bg-gray-100 border-gray-200 text-gray-300 cursor-not-allowed' : 'bg-white border-gray-200 hover:border-secondary hover:bg-secondary/20 text-brown active:scale-95'}`}
                 >
                   🛒 Add to Cart
                 </button>
                 <button
                   onClick={() => { onBuyNow(product, buildSelectedOptions()); onClose() }}
-                  className={`flex-1 ${style.btn} font-bold text-sm py-3 rounded-full min-h-[44px] active:scale-95 transition-all shadow`}
+                  disabled={requiredUnmet}
+                  className={`flex-1 font-bold text-sm py-3 rounded-full min-h-[44px] transition-all shadow ${requiredUnmet ? 'bg-gray-200 text-gray-300 cursor-not-allowed' : `${style.btn} active:scale-95`}`}
                 >
                   🛍️ Buy Now
                 </button>

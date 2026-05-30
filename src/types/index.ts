@@ -10,6 +10,9 @@ export interface ProductOptionItem {
 export interface ProductOptionGroup {
   name: string
   multiple?: boolean  // true = multi-select, false/undefined = single select
+  min?: number        // min selections required (only applies when multiple: true)
+  max?: number        // max selections allowed (only applies when multiple: true)
+  required?: boolean  // if true, user must pick at least one before adding/buying
   items: ProductOptionItem[]
 }
 
