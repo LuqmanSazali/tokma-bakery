@@ -6,46 +6,13 @@ import type { Product } from '../types'
 
 export const PRODUCTS: Product[] = [
   {
-    "id": "mix-hokaido-shell-fruit-tart-25",
-    "name": "Mix Hokaido Shell Fruit Tart (25 pcs)",
-    "price": 45,
-    "description": "No Description",
-    "category": "pastry",
-    "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
-    ],
-    "order": 1
-  },
-  {
-    "id": "mix-hokaido-shell-fruit-tart-36",
-    "name": "Mix Hokaido Shell Fruit Tart (36 pcs)",
-    "price": 60,
-    "description": "No Description",
-    "category": "pastry",
-    "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
-    ],
-    "order": 1
-  },
-  {
-    "id": "mix-hokaido-shell-fruit-tart-49",
-    "name": "Mix Hokaido Shell Fruit Tart (49 pcs)",
-    "price": 80,
-    "description": "No Description",
-    "category": "pastry",
-    "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
-    ],
-    "order": 1
-  },
-  {
     "id": "mix-fruit-tart-25",
     "name": "Mix Fruit Tart (25 pcs)",
     "price": 45,
     "description": "No Description",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/mix-fruit-tart-25/mix-fruit-tart.png"
     ],
     "order": 2
   },
@@ -56,7 +23,7 @@ export const PRODUCTS: Product[] = [
     "description": "No Description",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/mix-fruit-tart-36/mix-fruit-tart.png"
     ],
     "order": 2
   },
@@ -67,7 +34,7 @@ export const PRODUCTS: Product[] = [
     "description": "No Description",
     "category": "pastry",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/mix-fruit-tart-49/mix-fruit-tart.png"
     ],
     "order": 2
   },
@@ -271,7 +238,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -302,7 +269,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -333,7 +300,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -364,7 +331,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -395,7 +362,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -426,7 +393,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -457,7 +424,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -488,7 +455,7 @@ export const PRODUCTS: Product[] = [
     "options": [
       {
         "name": "Fillings",
-        "multiple": true,
+        "multiple": false,
         "items": [
           {
             "label": "Shrimp 🍤"
@@ -514,7 +481,8 @@ export const PRODUCTS: Product[] = [
     "description": "Silky smooth panna cotta topped with fresh tropical fruits. Each set comes with 3 flavours of your choice.",
     "category": "cake",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/mix-fruit-panacotta-9/mix-fruit-panacotta-01.png",
+      "/tokma-bakery/products/mix-fruit-panacotta-9/mix-fruit-panacotta-02.png"
     ],
     "options": [
       {
@@ -554,7 +522,8 @@ export const PRODUCTS: Product[] = [
     "description": "Silky smooth panna cotta topped with fresh tropical fruits. Each set comes with 4 flavours of your choice.",
     "category": "cake",
     "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
+      "/tokma-bakery/products/mix-fruit-panacotta-16/mix-fruit-panacotta-01.png",
+      "/tokma-bakery/products/mix-fruit-panacotta-16/mix-fruit-panacotta-02.png"
     ],
     "options": [
       {
@@ -586,72 +555,6 @@ export const PRODUCTS: Product[] = [
       }
     ],
     "order": 9
-  },
-  {
-    "id": "pulut-kuning-rendang-pedas-daging-10",
-    "name": "Pulut Kuning & Rendang Pedas Daging (10 box)",
-    "price": 0,
-    "description": "No Description",
-    "category": "traditional",
-    "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
-    ],
-    "order": 10
-  },
-  {
-    "id": "pulut-kuning-rendang-pedas-daging-20",
-    "name": "Pulut Kuning & Rendang Pedas Daging (20 box)",
-    "price": 0,
-    "description": "No Description",
-    "category": "traditional",
-    "images": [
-      "https://placehold.co/400x300/E5E7EB/9CA3AF?text=No+Image"
-    ],
-    "order": 10
-  },
-  {
-    "id": "pulut-kuning-serunding-ayam-10",
-    "name": "Pulut Kuning & Serunding Ayam (10 box)",
-    "price": 0,
-    "description": "No Description",
-    "category": "traditional",
-    "images": [
-      "/tokma-bakery/products/pulut-kuning-serunding-ayam-10/pulut-kuning-serunding-ayam.png"
-    ],
-    "order": 10
-  },
-  {
-    "id": "pulut-kuning-serunding-ayam-20",
-    "name": "Pulut Kuning & Serunding Ayam (20 box)",
-    "price": 0,
-    "description": "No Description",
-    "category": "traditional",
-    "images": [
-      "/tokma-bakery/products/pulut-kuning-serunding-ayam-20/pulut-kuning-serunding-ayam.png"
-    ],
-    "order": 10
-  },
-  {
-    "id": "pulut-kuning-serunding-daging-10",
-    "name": "Pulut Kuning & Serunding Daging (10 box)",
-    "price": 0,
-    "description": "No Description",
-    "category": "traditional",
-    "images": [
-      "/tokma-bakery/products/pulut-kuning-serunding-daging-10/pulut-kuning-serunding-daging.png"
-    ],
-    "order": 10
-  },
-  {
-    "id": "pulut-kuning-serunding-daging-20",
-    "name": "Pulut Kuning & Serunding Daging (20 box)",
-    "price": 0,
-    "description": "No Description",
-    "category": "traditional",
-    "images": [
-      "/tokma-bakery/products/pulut-kuning-serunding-daging-20/pulut-kuning-serunding-daging.png"
-    ],
-    "order": 10
   },
   {
     "id": "beef-pot-pies-9",
